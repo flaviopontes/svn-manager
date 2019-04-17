@@ -16,6 +16,8 @@ RUN apk add --no-cache apache2 apache2-utils apache2-ctl apache2-webdav mod_dav_
 	mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd
 
+VOLUME ["/var/opt/svn"]
+
 # Add distro files
 ADD dist /
 
