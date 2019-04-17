@@ -7,16 +7,17 @@ FROM smebberson/alpine-base
 	# Create required folders
 	# Create the authentication file for http access
 	# Getting SVNADMIN interface
+VOLUME ["/var/opt/svn"]
+VOLUME ["/etc/subversion"]
+
 RUN apk add --no-cache apache2 apache2-utils apache2-ctl apache2-webdav mod_dav_svn &&\
 	apk add --no-cache subversion &&\
 	apk add --no-cache wget unzip php7 php7-apache2 php7-session php7-json &&\
 	apk add --no-cache php7-xml &&\
 	mkdir -p /run/apache2/ &&\
-	mkdir /var/opt/svn &&\
-	mkdir /etc/subversion &&\
+	# mkdir /var/opt/svn &&\
+	# mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd
-
-VOLUME ["/var/opt/svn"]
 
 # Add distro files
 ADD dist /
