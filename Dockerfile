@@ -14,11 +14,11 @@ RUN apk add --no-cache apache2 apache2-utils apache2-webdav mod_dav_svn &&\
 	mkdir -p /run/apache2/ &&\
 	mkdir /home/svn/ &&\
 	mkdir /etc/subversion &&\
-	touch /etc/subversion/passwd &&\
-	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin &&\
-	chmod -R 777 /opt/svnadmin/data
+	touch /etc/subversion/passwd
 
 ADD svnadmin/ /opt/svnadmin/
+RUN	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin &&\
+	chmod -R 777 /opt/svnadmin/data
 
 # Add services configurations
 ADD apache/ /etc/services.d/apache/
