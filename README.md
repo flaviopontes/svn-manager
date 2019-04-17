@@ -8,7 +8,7 @@ The access to the server is possible via **WebDav protocol** (http://), and via 
 # Running Commands
 To run the image, you can use the following command:
 ```
-docker run -d --name svn-server -p 80:80 -p 3960:3960 elleflorio/svn-server
+docker run -d --name svn-server -p 80:80 -p 3690:3690 flaviopontes/svn-manager
 ```
 You can optionally bind a local folder to the container folder that will store your repositories using the flag `-v <hostpath>:/home/svn`.
 
