@@ -10,9 +10,9 @@ FROM smebberson/alpine-base
 RUN apk add --no-cache apache2 apache2-utils apache2-ctl apache2-webdav mod_dav_svn &&\
 	apk add --no-cache subversion &&\
 	apk add --no-cache wget unzip php7 php7-apache2 php7-session php7-json &&\
-	apk add --no-cache php7-xml &&\	
+	apk add --no-cache php7-xml &&\
 	mkdir -p /run/apache2/ &&\
-	mkdir /home/svn/ &&\
+	mkdir /var/opt/svn &&\
 	mkdir /etc/subversion &&\
 	touch /etc/subversion/passwd
 
@@ -24,9 +24,9 @@ RUN	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin
 
 # Set permissions
 RUN chmod a+w /etc/subversion/* &&\
-	chmod a+w /home/svn &&\
-	chown apache:apache /home/svn &&\
-	chmod -R 777 /home/svn &&\
+	chmod a+w /var/opt/svn &&\
+	chown apache:apache /var/opt/svn &&\
+	chmod -R 777 /var/opt/svn &&\
 	chmod -R 777 /opt/svnadmin/data
 
 # Expose ports for http and custom protocol access
