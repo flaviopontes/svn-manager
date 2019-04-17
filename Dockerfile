@@ -25,7 +25,7 @@ RUN	ln -s /opt/svnadmin /var/www/localhost/htdocs/svnadmin
 # Set permissions
 RUN chmod a+w /etc/subversion/* &&\
 	chmod a+w /var/opt/svn &&\
-	chown apache:apache /var/opt/svn &&\
+	chown -R apache:apache /var/opt/svn &&\
 	chmod -R 777 /var/opt/svn &&\
 	chmod -R 777 /opt/svnadmin/data
 
